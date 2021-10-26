@@ -1,11 +1,10 @@
 package com.jokerconf.jpapuzzlers.entities;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Table(name = "pet")
@@ -17,4 +16,8 @@ public class Pet {
 
     @Column(name = "name")
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    private Owner owner;
 }

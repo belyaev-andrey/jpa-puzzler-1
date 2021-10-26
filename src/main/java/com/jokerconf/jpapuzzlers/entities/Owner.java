@@ -2,10 +2,8 @@ package com.jokerconf.jpapuzzlers.entities;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @Table(name = "owner")
@@ -18,4 +16,6 @@ public class Owner {
     @Column(name = "name")
     private String name;
 
+    @OneToMany(mappedBy = "owner")
+    private Set<Pet> pets;
 }
